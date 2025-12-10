@@ -1,5 +1,6 @@
 import "./App.css";
 import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
 
 function App() {
   return (
@@ -17,6 +18,19 @@ function App() {
             Back home
           </Button>
           <Button loading>Saving...</Button>
+          <Input label="Name" description="Please enter your name" />
+          <Input
+            label="Last name"
+            description="Please enter your last name"
+            disabled
+          />
+          <Input
+            type="tel"
+            label="Phone number"
+            description="Please enter your mobile"
+            error="error"
+            onChange={(e) => console.log(e.target.value)}
+          />
         </div>
       </div>
     </>
