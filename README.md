@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# Mini Component Library – React + TypeScript + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a small reusable component library built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS (v4)**.  
+It was created as a technical assignment and demonstrates component design, type-safety, clean, reusable UI patterns.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### Technologies
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Lucide Icon
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Implemented Components
+#### **1. Button**
+- Variants: `primary`, `secondary`, `outline`
+- Sizes: `sm`, `md`, `lg`
+- `loading` state with spinner
+- `disabled` state
+- Fully typed with TypeScript
+- Reusable & customizable via `className`
 
-## Expanding the ESLint configuration
+#### **2. Input**
+- `label`, `description`, and `error` states
+- Disabled state
+- Works as controlled
+- Reusable & clean
+- Type-safe and easy to extend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### **3. Select**
+- Controlled component
+- Placeholder support
+- Keyboard navigation: ↑ ↓ Enter Esc
+- Disabled select state
+- Reusable option list
+- Type-safe and easy to extend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation & Running the Project
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+Project will run at: http://localhost:5173
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+```bash
+src/
+  components/
+    Button/
+      Button.tsx
+      buttonType.ts
+    Input/
+      Input.tsx
+      inputType.ts
+    Select/
+      Select.tsx
+      selectType.ts
+  App.tsx
+  main.tsx
 ```

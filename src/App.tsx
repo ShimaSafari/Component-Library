@@ -1,8 +1,19 @@
 import "./App.css";
 import Button from "./components/Button/Button";
 import Input from "./components/Input/Input";
+import Select from "./components/Select/Select";
+import { useState } from "react";
 
 function App() {
+  const [country, setCountry] = useState("");
+
+  const options = [
+    { value: "usa", label: "USA" },
+    { value: "canada", label: "Canada" },
+    { value: "germany", label: "Germany" },
+    { value: "russia", label: "Russia" },
+    { value: "uk", label: "UK", disabled: true },
+  ];
   return (
     <>
       <div className="min-h-screen p-10">
@@ -30,6 +41,28 @@ function App() {
             description="Please enter your mobile"
             error="error"
             onChange={(e) => console.log(e.target.value)}
+          />
+          <Select
+            label="Country"
+            placeholder="Select your country"
+            description="Choose one option"
+            options={options}
+            value={country}
+            onChange={setCountry}
+          />
+          <Select
+            label="Disabled select"
+            options={options}
+            value={country}
+            onChange={setCountry}
+            disabled
+          />
+          <Select
+            label="Error example"
+            options={options}
+            value={country}
+            onChange={setCountry}
+            error="You must select a country"
           />
         </div>
       </div>
